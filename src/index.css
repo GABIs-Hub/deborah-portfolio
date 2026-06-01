@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #0A0F1E;
+  color: #F7F3EC;
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: rgba(201,169,110,0.25); color: #E8D4A8; }
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #0A0F1E; }
+::-webkit-scrollbar-thumb { background: #C9A96E; border-radius: 2px; }
+
+/* ── Gold shimmer text ── */
+.gold-shimmer {
+  background: linear-gradient(90deg, #C9A96E 0%, #E8D4A8 40%, #C9A96E 60%, #9A7833 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Glassmorphism navbar ── */
+.glass-nav {
+  background: rgba(10,15,30,0.92);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(201,169,110,0.12);
+}
+
+/* ── Cards ── */
+.gold-border-card {
+  border: 1px solid rgba(201,169,110,0.18);
+  background: linear-gradient(135deg, rgba(15,23,41,0.95) 0%, rgba(22,32,53,0.75) 100%);
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+.gold-border-card:hover {
+  border-color: rgba(201,169,110,0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 56px rgba(201,169,110,0.09);
+}
+
+.cert-card {
+  background: linear-gradient(135deg, rgba(15,23,41,0.85) 0%, rgba(10,15,30,0.95) 100%);
+  border: 1px solid rgba(201,169,110,0.12);
+  transition: all 0.3s ease;
+}
+.cert-card:hover {
+  border-color: rgba(201,169,110,0.35);
+  background: linear-gradient(135deg, rgba(22,32,53,0.9) 0%, rgba(15,23,41,0.9) 100%);
+}
+
+.stat-card-bg {
+  background: linear-gradient(135deg, rgba(30,44,71,0.55) 0%, rgba(22,32,53,0.4) 100%);
+  border: 1px solid rgba(201,169,110,0.22);
+}
+
+/* ── Section divider ── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201,169,110,0.35) 30%, rgba(201,169,110,0.35) 70%, transparent 100%);
+}
+
+/* ── Scroll-triggered animations ── */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translateX(-24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.animate-on-scroll-left.visible { opacity: 1; transform: translateX(0); }
+
+/* ── Timeline ── */
+.timeline-line {
+  background: linear-gradient(180deg, rgba(201,169,110,0.7) 0%, rgba(201,169,110,0.08) 100%);
+}
+
+/* ── Hero background ── */
+.hero-bg {
+  background:
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 10% 80%, rgba(30,44,71,0.5) 0%, transparent 50%),
+    linear-gradient(160deg, #04070F 0%, #0A0F1E 45%, #0F1729 100%);
+}
+
+/* ── Avatar glow ── */
+.avatar-glow {
+  box-shadow:
+    0 0 0 1px rgba(201,169,110,0.25),
+    0 0 0 6px rgba(201,169,110,0.06),
+    0 0 36px rgba(201,169,110,0.12),
+    0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* ── Skill tags ── */
+.skill-tag {
+  background: rgba(201,169,110,0.07);
+  border: 1px solid rgba(201,169,110,0.22);
+  color: #D4B87A;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.skill-tag:hover {
+  background: rgba(201,169,110,0.13);
+  border-color: rgba(201,169,110,0.45);
+}
+
+/* ── Icon box (reusable) ── */
+.icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(201,169,110,0.08);
+  border: 1px solid rgba(201,169,110,0.2);
+  border-radius: 4px;
+}
+
+/* ── Nav links ── */
+.nav-link {
+  position: relative;
+  color: rgba(247,243,236,0.6);
+  transition: color 0.3s ease;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: "DM Sans", sans-serif;
+  padding-bottom: 2px;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0%;
+  height: 1px;
+  background: #C9A96E;
+  transition: width 0.3s ease;
+}
+.nav-link:hover { color: #C9A96E; }
+.nav-link:hover::after,
+.nav-link.active::after { width: 100%; }
+.nav-link.active { color: #C9A96E; }
+
+/* ── Keyframes ── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Tailwind animation utilities ── */
+.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-fade-up { animation: fadeUp 0.8s ease forwards; }
+.animate-fade-in { animation: fadeIn 1s ease forwards; }
