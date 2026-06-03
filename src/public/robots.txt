@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://deboga.vercel.app/sitemap.xml
