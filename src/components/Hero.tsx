@@ -28,7 +28,6 @@ export default function Hero() {
 
       <div className="max-w-6xl mx-auto px-5 sm:px-8 w-full py-16 sm:py-24">
         <div className="flex flex-col md:flex-row items-center gap-12 md:gap-10 lg:gap-20">
-
           {/* ── Avatar ── top on mobile, right on desktop */}
           <div className={`order-1 md:order-2 flex-shrink-0 transition-all duration-1000
             ${visible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-6 scale-95"}`}
